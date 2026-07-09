@@ -11,9 +11,6 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EvaluationPrinterServiceTest {
-
-    // REFACTOR: Usamos un MethodSource para probar muchas fechas incorrectas
-    // sin repetir código, centralizando los datos de prueba.
     static Stream<LocalDate> fechasInvalidasProvider() {
         return Stream.of(
                 LocalDate.now(),                // Hoy (inválido, debe ser mañana)
@@ -21,7 +18,8 @@ public class EvaluationPrinterServiceTest {
                 LocalDate.now().plusDays(2)     // Pasado mañana
         );
     }
-
+    // REFACTOR: Usamos un MethodSource para probar muchas fechas incorrectas
+    // sin repetir código, centralizando los datos de prueba.
     @ParameterizedTest
     @MethodSource("fechasInvalidasProvider")
     @DisplayName("Debería lanzar excepción si la fecha no es mañana")
