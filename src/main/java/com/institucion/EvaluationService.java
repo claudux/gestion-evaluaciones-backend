@@ -12,9 +12,9 @@ public class EvaluationService {
 
         //este codigo es para pasar a verde en el test
         this.status = "Publicada";
-        //crear variables ficticias
+        //crear variables ficticias, una posible refactorizacion es evitar el hardcodeo de las variables, creando una clase evaluacion, que contenga los datos
         String studentEmail = "alumno_prueba@cftdelosrios.cl";
-        String message = "Tus calificaciones para la evaluación " + EvaluationID + "se encuentran publicadas.";
+        String message = "Tus calificaciones para la evaluación " + EvaluationID + " se encuentran publicadas.";
 
         //invocar el metodo sendAlert
         notificationService.sendAlert(studentEmail, message);
