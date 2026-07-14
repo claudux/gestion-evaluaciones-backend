@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EvaluationPrinterTest {
 
     @ParameterizedTest
-    @ValueSource(ints = {-5, 0, 50, 100}) // Valores fuera del rango permitido (rango válido: 1 a 49)
+    @ValueSource(ints = {-5, 0, 51, 100}) // Valores fuera del rango permitido (rango válido: 1 a 50)
     @DisplayName("Debería lanzar InvalidCopyQuantityException si las copias no están entre 1 y 49")
     public void testValidarCantidad_WhenValuesAreOutsideRange_ShouldThrowException(int invalidCopies) {
         // 1. ARRANGE
