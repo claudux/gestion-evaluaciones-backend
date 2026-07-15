@@ -2,10 +2,12 @@ package com.institucion;
 
 import com.institucion.exception.EvaluationNotPublishedException;
 import com.institucion.exception.InvalidCopyQuantityException;
+import com.institucion.exception.InvalidEvaluationDateException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDate;
 
 public class EvaluationStatusPrinterServiceTest {
     //dummy para aislar notificacion
@@ -20,7 +22,7 @@ public class EvaluationStatusPrinterServiceTest {
         //arrange
         NotificationService dummyNotifier = new DummyNotificationStatusService();
         EvaluationStatusPrinterService printerService = new EvaluationStatusPrinterService(dummyNotifier);
-        Evaluation evaluation = new Evaluation(2345, "cduran@cftdelosrios.cl");//estado inicial pendiente
+        Evaluation evaluation = new Evaluation(2345, "cduran@cftdelosrios.cl", LocalDate.now().plusDays(1));//estado inicial pendiente
 
         //act assert
         assertThrows(EvaluationNotPublishedException.class, () -> {
@@ -35,7 +37,7 @@ public class EvaluationStatusPrinterServiceTest {
         //arrange
         NotificationService dummyNotifier = new DummyNotificationStatusService();
         EvaluationStatusPrinterService printerService = new EvaluationStatusPrinterService(dummyNotifier);
-        Evaluation evaluation = new Evaluation(4565, "claudio.duran@cftdelosrios.cl");
+        Evaluation evaluation = new Evaluation(4565, "claudio.duran@cftdelosrios.cl", LocalDate.now().plusDays(1));
         evaluation.publish();//cambiar estado a Publicado
 
         //act assert

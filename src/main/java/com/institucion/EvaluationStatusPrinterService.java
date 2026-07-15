@@ -2,7 +2,8 @@ package com.institucion;
 //clase que engloba todo lo aprendido, revisa estado de evaluacion y se asegura que numero de copias sea menor que 50
 import com.institucion.exception.EvaluationNotPublishedException;
 import com.institucion.exception.InvalidCopyQuantityException;
-
+import com.institucion.exception.InvalidEvaluationDateException;
+import java.time.LocalDate;
 public class EvaluationStatusPrinterService {
     private final NotificationService notificationService;
 
@@ -20,6 +21,11 @@ public class EvaluationStatusPrinterService {
         if (copies <=0 || copies >= 50){
             throw new InvalidCopyQuantityException("The number of copies must be greater than 0 and less than 50.");
 
+        }
+
+        //regla 3, la fecha debe ser el dia anterior
+        if(!LocalDate.now().isBefore(evaluation.getEvaluationDate())){
+            throw new InvalidEvaluationDateException("La impresión solo puede realizarse el dia anterior a la evaluación");
         }
         // si pasa las reglas, camino correcto
         String message = "Your printing job for evaluation " + evaluation.getId() + " with " + copies + " copies has been approved.";
