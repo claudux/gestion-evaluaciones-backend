@@ -1,5 +1,5 @@
 package com.institucion;
-
+//clase que engloba todo lo aprendido, revisa estado de evaluacion y se asegura que numero de copias sea menor que 50
 import com.institucion.exception.EvaluationNotPublishedException;
 import com.institucion.exception.InvalidCopyQuantityException;
 

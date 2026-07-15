@@ -1,5 +1,5 @@
 package com.institucion;
-
+//clase para comprobar que la fecha de impresion sea 1 dia mayor, y que la cantidad solicitada sea menor que 50
 import com.institucion.exception.InvalidEvaluationDateException;
 import com.institucion.exception.InvalidCopyQuantityException;
 import java.time.LocalDate;

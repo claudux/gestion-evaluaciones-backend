@@ -1,7 +1,7 @@
 package com.institucion;
 
 import com.institucion.exception.MaxCopiesExceededException;
-
+//clase para verificar que el numero de copias sea menor que 50
 public class CopyRequest {
 
     private int requestedCopies;

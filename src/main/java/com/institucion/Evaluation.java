@@ -1,5 +1,5 @@
 package com.institucion;
-
+//clase que permite crear objetos Evaluation, para encapsular datos y evitar hardcoreo.
 public class Evaluation {
     private final int id;
     private final String studentEmail;

@@ -1,5 +1,6 @@
 package com.institucion;
-
+//clase para probar que la evaluacion cambia de estado cuando se publica y avisa al estudiante.
+//implementa NotificationService para usar pruebas dobles
 public class EvaluationService {
     private final NotificationService notificationService;
     private String status ="Pendiente";
