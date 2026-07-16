@@ -10,7 +10,7 @@ public class EvaluationStatusPrinterService {
     public EvaluationStatusPrinterService(NotificationService notificationService){
         this.notificationService = notificationService;
     }
-
+    //metodo que engloba las reglas de negocio
     public void requestPrintJob(Evaluation evaluation, int copies){
         //regla 1, evaluacion debe estar en Publicada
         if(!"Publicada".equals(evaluation.getStatus())){
@@ -23,7 +23,7 @@ public class EvaluationStatusPrinterService {
 
         }
 
-        //regla 3, la fecha debe ser el dia anterior
+        //regla 3, solo se puede imprimir la evaluacion el dia anterior a la fecha establecida
         if(!LocalDate.now().isBefore(evaluation.getEvaluationDate())){
             throw new InvalidEvaluationDateException("La impresión solo puede realizarse el dia anterior a la evaluación");
         }
