@@ -17,22 +17,27 @@ public class Evaluation {
     }
 
     public void publish(){
+
         this.status = "Publicada";
     }
 
     public int getId(){
+
         return id;
     }
 
     public String getStudentEmail(){
+
         return studentEmail;
     }
 
     public String getStatus(){
+
         return status;
     }
 
     public LocalDate getEvaluationDate(){
+
         return evaluationDate;
     }
 }

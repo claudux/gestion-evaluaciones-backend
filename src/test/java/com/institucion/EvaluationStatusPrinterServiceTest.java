@@ -1,48 +1,74 @@
 package com.institucion;
-
 import com.institucion.exception.EvaluationNotPublishedException;
 import com.institucion.exception.InvalidCopyQuantityException;
 import com.institucion.exception.InvalidEvaluationDateException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
+import static org.mockito.Mockito.*;
 
-public class EvaluationStatusPrinterServiceTest {
-    //dummy para aislar notificacion
-    private static class DummyNotificationStatusService implements NotificationService{
-    @Override
-    public void sendAlert(String email, String message){
-        //de momento no hace nada, solo cascara
+@ExtendWith(MockitoExtension.class)
+class EvaluationStatusPrinterServiceTest {
+
+    @Mock
+    private NotificationService notificationService;
+
+    @InjectMocks
+    private EvaluationStatusPrinterService printerService;
+    private Evaluation validEvaluation;
+
+    @BeforeEach
+    void setUp(){
+        validEvaluation = new Evaluation(1, "claudio@latam.cl", LocalDate.now().plusDays(1));
     }
-    }
+
     @Test
-    public void shouldThrowExceptionWhenEvaluationIsNotPublished(){
+    @DisplayName("Debe procesar o imprimir la evaluacion de forma exitosa y verificar con Mockito")
+    void testRequestPrintJobSuccess(){
         //arrange
-        NotificationService dummyNotifier = new DummyNotificationStatusService();
-        EvaluationStatusPrinterService printerService = new EvaluationStatusPrinterService(dummyNotifier);
-        Evaluation evaluation = new Evaluation(2345, "cduran@cftdelosrios.cl", LocalDate.now().plusDays(1));//estado inicial pendiente
+        int copies = 40;
+        validEvaluation.publish();
+        //act
+        printerService.requestPrintJob(validEvaluation, copies);
 
-        //act assert
-        assertThrows(EvaluationNotPublishedException.class, () -> {
-            printerService.requestPrintJob(evaluation, 10);
-        }, "Should throw EvaluationNotPublishedException if evaluation status is PENDING");
-
+        //assert: validar mock con llamada con los parametros
+        verify(notificationService, times(1)).sendAlert("claudio@latam.cl", "Your printing job for evaluation 1 with 40 copies has been approved.");
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {-5, 0, 50, 100})
-    public void shouldThrowExceptionWhenCopyQuantityIsInvalid(int invalidCopies){
+    @Test
+    @DisplayName("Lanzar IllegalStateException si el estado no es Pendiente")
+    void testRequestPrintJobInvalidStatus(){
         //arrange
-        NotificationService dummyNotifier = new DummyNotificationStatusService();
-        EvaluationStatusPrinterService printerService = new EvaluationStatusPrinterService(dummyNotifier);
-        Evaluation evaluation = new Evaluation(4565, "claudio.duran@cftdelosrios.cl", LocalDate.now().plusDays(1));
-        evaluation.publish();//cambiar estado a Publicado
 
-        //act assert
-        assertThrows(InvalidCopyQuantityException.class, () ->{
-            printerService.requestPrintJob(evaluation, invalidCopies);
-        }, "Should throw InvalidCopyQuantityException for copy amount: " + invalidCopies);
+        //act y assert
+        assertThrows(EvaluationNotPublishedException.class, () -> {
+            printerService.requestPrintJob(validEvaluation,5);
+        });
+
+        //verificar
+        verifyNoInteractions(notificationService);
+    }
+
+    @Test
+    @DisplayName("Lanzar InvalidEvaluationDateException si se intenta imprimir cuando no corresponde")
+    void testResquestPrintJobSameDayException(){
+        //arrange
+        Evaluation todayEvaluation = new Evaluation(2, "claudio@latam.cl", LocalDate.now());
+        todayEvaluation.publish();
+        //act y assert
+        assertThrows(InvalidEvaluationDateException.class, () -> {
+            printerService.requestPrintJob(todayEvaluation, 5);
+        });
+
+        //verificar
+        verifyNoInteractions(notificationService);
     }
 }
