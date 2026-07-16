@@ -44,7 +44,7 @@ gestion-evaluaciones/
 ├── src/
 │   ├── main/
 │   │   └── java/
-│   │       └── institucion/
+│   │       └── com/institucion/
 │   │           ├── exception/
 │   │           │   ├── InvalidEvaluationDateException.java
 │   │           │   ├── InvalidCopyQuantityException.java
@@ -54,7 +54,7 @@ gestion-evaluaciones/
 │   │           └── EvaluationStatusPrinterService.java
 │   └── test/
 │       └── java/
-│           └── institucion/
+│           └── com/institucion/
 │               └── EvaluationStatusPrinterServiceTest.java
 ├── pom.xml
 └── README.md
