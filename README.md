@@ -58,27 +58,3 @@ gestion-evaluaciones/
 │               └── EvaluationStatusPrinterServiceTest.java
 ├── pom.xml
 └── README.md
-
----
-
-## 📈 Bitácora de Aprendizaje (Evolución del Proyecto)
-
-[cite_start]Para evidenciar el avance lineal y la adquisición progresiva de habilidades a lo largo de este módulo, el repositorio refleja un desarrollo incremental[cite: 105, 108]. [cite_start]A continuación, se detallan los hitos clave alcanzados en cada etapa del proceso[cite: 108, 114]:
-
-| Sesión / Hito | Enfoque de Aprendizaje | Conceptos Clave Aplicados |
-| :--- | :--- | :--- |
-| **Sesión 1 & 2** | Dominio y TDD | [cite_start]Creación de la entidad pura de negocio `Evaluation` [cite: 66, 67, 110][cite_start], encapsulamiento del estado (`PENDING`) [cite: 67, 110] y primeros pasos en el diseño guiado por pruebas. |
-| **Sesión 3** | Robustez y Límites | [cite_start]Implementación de aserciones semánticas y control de flujo mediante excepciones de negocio (`assertThrows`)[cite: 27, 110]. |
-| **Sesión 4** | Aislamiento y ID | [cite_start]Introducción de principios de desacoplamiento[cite: 110]. [cite_start]Estructuración del servicio mediante **Inyección de Dependencias por Constructor** para facilitar el testeo[cite: 72, 110]. |
-| **Sesión 5** | Objetos Simulados | [cite_start]Migración de dobles de prueba manuales obsoletos a **Mocks Dinámicos** usando `@Mock` y `@InjectMocks` con Mockito[cite: 13, 25, 110]. |
-| **Sesión 6** | Calidad y Cobertura | [cite_start]Incorporación de tests unitarios para constructores de excepciones personalizadas, logrando un **100% de Line & Branch Coverage**[cite: 30, 81, 110]. |
-
-### 🛠️ Auditoría de Commits Recomendados
-
-[cite_start]Si deseas verificar el "viaje en el tiempo" de la construcción del código, puedes ejecutar en tu terminal el comando `git log`[cite: 109, 110]. [cite_start]Encontrarás un historial de commits limpio e incremental estructurado bajo buenas prácticas[cite: 108, 110]:
-
-* [cite_start]**`feat: agregar entidad Evaluation e inicializar estado`** [cite: 110] (Sesión 2)
-* [cite_start]**`test: implementar assertThrows y pruebas paramétricas para límites`** [cite: 110] (Sesión 3)
-* [cite_start]**`pattern: aislar dependencias usando inyección por constructor`** [cite: 110] (Sesión 4)
-* [cite_start]**`refactor: migrar dobles manuales a mocks dinámicos con Mockito`** [cite: 110] (Sesión 5)
-* [cite_start]**`quality: incorporar pruebas de excepciones para asegurar 100% code coverage`** [cite: 110] (Sesión 6)
