@@ -35,6 +35,12 @@ La suite de pruebas automatizada se encuentra en `EvaluationStatusPrinterService
 
 ---
 
+### 📈 Reporte de Cobertura Interactiva
+Puedes visualizar el reporte de cobertura en vivo ingresando al siguiente enlace de GitHub Pages:
+👉 [Ver Reporte de Cobertura de JaCoCo](https://claudux.github.io/gestion-evaluaciones-backend/)
+
+---
+
 ## 📂 Estructura Limpia del Proyecto
 
 El proyecto está organizado bajo la estructura estándar de Maven:
@@ -58,7 +64,3 @@ gestion-evaluaciones/
 │               └── EvaluationStatusPrinterServiceTest.java
 ├── pom.xml
 └── README.md
-
-### 📈 Reporte de Cobertura Interactiva
-Puedes visualizar el reporte de cobertura en vivo ingresando al siguiente enlace de GitHub Pages:
-👉 [Ver Reporte de Cobertura de JaCoCo](https://claudux.github.io/gestion-evaluaciones-backend/)
