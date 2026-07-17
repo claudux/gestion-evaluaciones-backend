@@ -1,8 +1,8 @@
 # Sistema de Gestión de Evaluaciones (`gestion-evaluaciones`) 🚀
 
-¡Bienvenido al proyecto **gestion-evaluaciones**! Esta es una aplicación desarrollada en Java puro, diseñada bajo los principios de **Arquitectura Limpia (Clean Architecture)** y **Diseño Guiado por el Dominio (DDD)**, asegurando un desacoplamiento total de bases de datos físicas o frameworks externos.
+¡Bienvenido al proyecto **gestion-evaluaciones**! Esta es una aplicación desarrollada en Java, diseñada bajo los principios de **Arquitectura Limpia (Clean Architecture)** y **Diseño Guiado por el Dominio (DDD)**, asegurando un desacoplamiento total de bases de datos físicas o frameworks externos.
 
-Este proyecto cuenta con una cobertura de pruebas automatizadas del **100% (Line & Branch Coverage)**, utilizando **JUnit 5** y **Mockito** para simular de manera dinámica las dependencias de infraestructura.
+Este proyecto cuenta con una cobertura de pruebas automatizadas **(Line & Branch Coverage)**, utilizando **JUnit 5** y **Mockito** para simular de manera dinámica las dependencias de infraestructura.
 
 ---
 
@@ -31,7 +31,7 @@ La suite de pruebas automatizada se encuentra en `EvaluationStatusPrinterService
 
 * **Pruebas de Flujo Exitoso:** Verificación del camino feliz cuando se cumplen las tres reglas de negocio.
 * **Pruebas de Límites y Excepciones:** Cobertura de caminos alternativos para las reglas de estado, rango de copias inválidas y fechas incorrectas.
-* **Cobertura de Excepciones Propias:** Se incluyeron pruebas unitarias que instancian y validan el comportamiento de las excepciones personalizadas, garantizando que el motor de cobertura de IntelliJ/Maven marque un impecable **100% en verde** tanto en líneas como en ramas condicionales.
+* **Cobertura de Excepciones Propias:** Se incluyeron pruebas unitarias que instancian y validan el comportamiento de las excepciones personalizadas, garantizando que el motor de cobertura de IntelliJ/Maven marque un  **100% en verde** tanto en líneas como en ramas condicionales.
 
 ---
 
