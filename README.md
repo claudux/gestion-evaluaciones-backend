@@ -43,7 +43,7 @@ Puedes visualizar el reporte de cobertura en vivo ingresando al siguiente enlace
 
 ---
 
-## 📂 Estructura Limpia del Proyecto
+## 📂 Estructura del Proyecto
 
 El proyecto está organizado bajo la estructura estándar de Maven:
 
