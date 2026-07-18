@@ -39,6 +39,8 @@ La suite de pruebas automatizada se encuentra en `EvaluationStatusPrinterService
 Puedes visualizar el reporte de cobertura en vivo ingresando al siguiente enlace de GitHub Pages:
 👉 [Ver Reporte de Cobertura de JaCoCo](https://claudux.github.io/gestion-evaluaciones-backend/)
 
+![Reporte de Cobertura 100%](images/coverage.png)
+
 ---
 
 ## 📂 Estructura Limpia del Proyecto
