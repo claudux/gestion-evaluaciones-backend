@@ -6,6 +6,19 @@ Este proyecto cuenta con una cobertura de pruebas automatizadas **(Line & Branch
 
 ---
 
+## 💡 Propósito y Visión del Negocio
+
+En las instituciones educativas, la administración y logística de evaluaciones impresas suele presentar desafíos críticos de seguridad, confidencialidad y uso eficiente de recursos.
+
+El objetivo central de **gestion-evaluaciones** es proporcionar una solución **simple, eficiente y moderna para centralizar la gestión de impresiones de exámenes**. El sistema actúa como un orquestador que valida de forma automatizada las condiciones previas a la impresión, garantizando que:
+
+1. **Seguridad y Estado:** Únicamente se puedan imprimir evaluaciones que hayan sido formalmente publicadas.
+2. **Optimización de Recursos:** Se controle el volumen de impresiones (permitiendo solicitudes dentro de un rango estrictamente válido de 1 a 50 copias) para evitar el desperdicio de insumos.
+3. **Confidencialidad Temporal:** La impresión solo pueda procesarse con la antelación debida (estrictamente el día anterior a la fecha programada del examen), reduciendo el riesgo de filtraciones del material evaluativo.
+4. **Trazabilidad:** Se notifique automáticamente a los responsables cuando una solicitud cumple con todas las reglas de negocio y es aprobada.
+
+---
+
 ## 📋 Reglas de Negocio
 
 El núcleo del sistema se encuentra en el servicio centralizador `EvaluationStatusPrinterService`. Este servicio es el encargado de validar y procesar la impresión de los exámenes bajo tres estrictas reglas de negocio:
