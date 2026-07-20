@@ -35,6 +35,25 @@ La suite de pruebas automatizada se encuentra en `EvaluationStatusPrinterService
 
 ---
 
+## 🚀 Instrucciones de Ejecución y Pruebas
+Para validar la suite de pruebas unitarias y generar los reportes de cobertura en tu entorno local, utiliza los siguientes comandos de Maven desde la terminal en la raíz del proyecto:
+
+### 1. Ejecutar Suite de Tests Automatizados
+Ejecuta todas las pruebas asociadas a la lógica de negocio y validaciones de fronteras mediante JUnit 5 y Mockito:
+
+```bash
+mvn clean test
+```
+### 2. Generar reporte de Cobertura(JaCoCo)
+Ejecutar codigo para generar reporte:
+```bash
+mvn jacoco:report
+```
+
+📍 Ruta del Reporte Local: > Una vez ejecutado el comando anterior, puedes abrir el archivo visual desde tu navegador navegando a:
+
+target/site/jacoco/index.html
+
 ### 📈 Reporte de Cobertura Interactiva
 Puedes visualizar el reporte de cobertura en vivo ingresando al siguiente enlace de GitHub Pages:
 👉 [Ver Reporte de Cobertura de JaCoCo](https://claudux.github.io/gestion-evaluaciones-backend/)
