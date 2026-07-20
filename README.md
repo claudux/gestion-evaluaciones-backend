@@ -75,7 +75,7 @@ gestion-evaluaciones/
 │   │                 ├── exception/
 │   │                 │   ├── InvalidEvaluationDateException.java
 │   │                 │   ├── InvalidCopyQuantityException.java
-│   │                 │   └── InvalidEvaluationDateException.java
+│   │                 │   └── EvaluationNotPublishedException.java
 │   │                 │── Evaluation.java
 │   │                 ├── NotificationService.java
 │   │                 └── EvaluationStatusPrinterService.java
